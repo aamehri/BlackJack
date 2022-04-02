@@ -1,3 +1,6 @@
+# Code designed and written by Andrew Mehri, 2022
+# Please contact drewprof@yahoo.com for permission to use this code.
+
 import random
 # global data
 suite = ["Heart", "Spade", "Diamond", "Club"]
@@ -31,6 +34,7 @@ def createDeckBlackJack() -> dict:
     return deck
 
 
+# values for card in a Poker deck
 def createDeckPoker() -> dict:
     deck = dict()
     # to be designed
