@@ -1,16 +1,39 @@
 import random
+# global data
+suite = ["Heart", "Spade", "Diamond", "Club"]
+face = ["Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"]
 
 
-def createDeck() -> dict:
+# generic values for cards in deck
+def createDeckRegular() -> dict:
     deck = dict()
-    suite = ["Heart", "Spade", "Diamond", "Club"]
-    face = ["Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"]
     value = 1
     for type in suite:
         for name in face:
             deck.update({name + " of " + type: value})
             value += 1
         value = 1
+    return deck
+
+
+# values for cards in a Blackjack deck
+def createDeckBlackJack() -> dict:
+    deck = dict()
+    value = 1
+    for type in suite:
+        for name in face[0:10]:
+            deck.update({name + " of " + type: value})
+            value += 1
+        value = 10
+        for name in face[10:13]:
+            deck.update({name + " of " + type: value})
+        value = 1
+    return deck
+
+
+def createDeckPoker() -> dict:
+    deck = dict()
+    # to be designed
     return deck
 
 
