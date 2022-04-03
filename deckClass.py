@@ -62,7 +62,7 @@ class deck:
     def getHandValue(self, hand) -> int:
         count = 0
         for card in hand:
-            count += self.deck[card]
+            count += self.getCardValue(card)
         return count
 
 
