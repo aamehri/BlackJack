@@ -7,62 +7,62 @@ class deck:
     def __init__(self):
         self.suite = ["Heart", "Spade", "Diamond", "Club"]
         self.face = ["Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"]
-
-
+        self.deck = dict()
+        self.cards = list()
     # generic values for cards in deck
-    def createDeckRegular(self) -> dict:
-        deck = dict()
+    def createDeckRegular(self):
+
         value = 1
         for type in self.suite:
             for name in self.face:
-                deck.update({name + " of " + type: value})
+                self. deck.update({name + " of " + type: value})
                 value += 1
             value = 1
-        return deck
+
 
 
     # values for cards in a Blackjack deck
-    def createDeckBlackJack(self) -> dict:
-        deck = dict()
+    def createDeckBlackJack(self):
+
         value = 1
         for type in self.suite:
             for name in self.face[0:10]:
-                deck.update({name + " of " + type: value})
+                self.deck.update({name + " of " + type: value})
                 value += 1
             value = 10
             for name in self.face[10:13]:
-                deck.update({name + " of " + type: value})
+                self.deck.update({name + " of " + type: value})
             value = 1
-        return deck
+
 
 
     # values for card in a Poker deck
-    def createDeckPoker(self) -> dict:
-        deck = dict()
+    def createDeckPoker(self):
+        pass
         # to be designed
-        return deck
 
 
-    def shuffleDeck(deck) -> list:
-        cards = list()
-        for card in deck.keys():
-            cards.append(card)
-        random.shuffle(cards)
-        return cards
+
+    def shuffleDeck(self):
+
+        for card in self.deck.keys():
+            self.cards.append(card)
+        random.shuffle(self.cards)
 
 
-    def serveCard(cards) -> str:
-        return cards.pop()
+
+    def serveCard(self) -> str:
+        return self.cards.pop()
 
 
-    def getCardValue(card, deck) -> int:
-        return deck[card]
+    def getCardValue(self, card) -> int:
+        return self.deck[card]
 
 
-    def getHandValue(hand, deck) -> int:
+    def getHandValue(self, hand) -> int:
         count = 0
         for card in hand:
-            count += deck.getCardValue(card, deck)
+            count += self.deck[card]
         return count
 
 
